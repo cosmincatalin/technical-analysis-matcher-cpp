@@ -1,0 +1,10 @@
+{
+    "name": "Technical Analysis Matcher",
+    "extensions": [
+        "ms-vscode.cpptools",
+        "edwinsulaiman.jetbrains-rider-dark-theme",
+        "obrejla.netbeans-light-theme",
+        "editorconfig.editorconfig",
+        "streetsidesoftware.code-spell-checker",
+    ]
+}
