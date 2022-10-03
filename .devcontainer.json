@@ -2,9 +2,11 @@
     "name": "Technical Analysis Matcher",
     "extensions": [
         "ms-vscode.cpptools",
-        "edwinsulaiman.jetbrains-rider-dark-theme",
-        "obrejla.netbeans-light-theme",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.cmake-tools",
+        "ms-vscode.cpptools-themes",
         "editorconfig.editorconfig",
         "streetsidesoftware.code-spell-checker",
+        "sonarsource.sonarlint-vscode"
     ]
 }
