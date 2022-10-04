@@ -1,5 +1,5 @@
 {
-    "name": "Technical Analysis Matcher",
+    "name": "Technical Analysis Matcher C++",
     "extensions": [
         "ms-vscode.cpptools",
         "ms-vscode.makefile-tools",
@@ -7,6 +7,7 @@
         "ms-vscode.cpptools-themes",
         "editorconfig.editorconfig",
         "streetsidesoftware.code-spell-checker",
-        "sonarsource.sonarlint-vscode"
+        "sonarsource.sonarlint-vscode",
+        "jeff-hykin.better-cpp-syntax"
     ]
 }
