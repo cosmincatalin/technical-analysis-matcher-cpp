@@ -1,0 +1,12 @@
+{
+    "makefile.configurations": [
+        {
+            "name": "MyConfiguration",
+            "problemMatchers": [
+                "$gcc"
+            ],
+            "makeArgs": []
+        },
+    ],
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
+}
