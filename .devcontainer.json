@@ -8,6 +8,7 @@
         "editorconfig.editorconfig",
         "streetsidesoftware.code-spell-checker",
         "sonarsource.sonarlint-vscode",
-        "jeff-hykin.better-cpp-syntax"
+        "jeff-hykin.better-cpp-syntax",
+        "surajbarkale.ninja"
     ]
 }
