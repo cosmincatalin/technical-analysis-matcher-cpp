@@ -45,9 +45,9 @@ jobs:
                 name: Download dbg-macro
                 with:
                     repository: 'sharkdp/dbg-macro'
-                    path: './../'
+                    path: 'dbg-macro'
             -   name: Install dbg-macro
-                run: ln -s $(readlink -f ./../dbg-macro/dbg.h) /usr/include/dbg.h
+                run: ln -s $(readlink -f dbg-macro/dbg.h) /usr/include/dbg.h
             -   name: Download Ninja and CMake
                 shell: cmake -P {0}
                 run: |
