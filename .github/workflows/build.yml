@@ -6,7 +6,6 @@ on:
 
 env:
     BUILD_TYPE: Release
-    CCACHE_VERSION: 4.6
 
 jobs:
     build:
@@ -135,10 +134,6 @@ jobs:
                     endif()
             -   name: Install Strip
                 run: cmake --install build --prefix instdir --strip
-            -   name: Install Strip
-                run: |
-                    sudo apt install -y tree
-                    tree
             -   name: Pack
                 working-directory: instdir
                 run: cmake -E tar cfv ../${{ matrix.config.artifact }} --format=7zip .
