@@ -18,5 +18,6 @@ add_library(TechnicalAnalysisMatcher SHARED src/TechnicalAnalysisMatcher.cpp)
 
 add_executable(Detect runners/Detect.cpp)
 
-# Link the executable and the library together
+install(TARGETS TechnicalAnalysisMatcher)
+
 target_link_libraries(Detect TechnicalAnalysisMatcher)
