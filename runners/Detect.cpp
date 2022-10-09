@@ -1,5 +1,5 @@
 #include "TechnicalAnalysisMatcher.hpp"
-
+#define DBG_MACRO_NO_WARNING
 #include <dbg.h>
 
 #include <iostream>
