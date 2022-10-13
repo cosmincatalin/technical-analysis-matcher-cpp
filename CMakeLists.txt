@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.24.0)
 
 project(TechnicalAnalysisMatcher
         VERSION 1.0.0
@@ -16,6 +16,9 @@ include_directories(src)
 add_library(TechnicalAnalysisMatcher SHARED src/TechnicalAnalysisMatcher.cpp)
 
 add_executable(Detect runners/Detect.cpp)
+
+find_path(DBG_MACRO_INCLUDE_DIRS "dbg.h")
+target_include_directories(Detect PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
 
 install(TARGETS TechnicalAnalysisMatcher)
 

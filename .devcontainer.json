@@ -1,5 +1,6 @@
 {
     "name": "Technical Analysis Matcher C++",
+    "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu",
     "extensions": [
         "ms-vscode.cpptools",
         "ms-vscode.makefile-tools",
@@ -10,5 +11,6 @@
         "sonarsource.sonarlint-vscode",
         "jeff-hykin.better-cpp-syntax",
         "surajbarkale.ninja"
-    ]
+    ],
+    "postCreateCommand": "sudo apt remove -y cmake && sudo apt install -y python3-pip && pip install cmake && git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg && ~/vcpkg/bootstrap-vcpkg.sh"
 }

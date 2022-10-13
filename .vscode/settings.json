@@ -8,7 +8,14 @@
             "makeArgs": []
         },
     ],
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
     "C_Cpp.errorSquiggles": "Enabled",
-    "cmake.generator": "Ninja"
+    "cmake.generator": "Ninja",
+    "cmake.configureSettings": {
+        "CMAKE_TOOLCHAIN_FILE": "/usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    },
+    "cmake.configureOnOpen": true
 }
