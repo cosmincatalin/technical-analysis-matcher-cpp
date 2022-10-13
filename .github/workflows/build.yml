@@ -39,8 +39,8 @@ jobs:
         steps:
             -   uses: actions/checkout@v3
 
-            -   uses: lukka/get-cmake@latest
-                name: Install Cmake
+            -   uses: lukka/get-cmake@v3.23.2
+                name: Install CMake v3.23.2 and Ninja v1.11.0
 
             -   name: Restore artifacts, or setup vcpkg (do not install any package)
                 uses: lukka/run-vcpkg@v10
@@ -49,74 +49,17 @@ jobs:
 
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
                 uses: lukka/run-cmake@v10
+                with:
+                    configurePreset: 'ninja-multi-vcpkg'
+                    buildPreset: 'ninja-multi-vcpkg'
 
-            -   uses: seanmiddleditch/gha-setup-ninja@master
-                name: Install Ninja
-
-            -   name: Configure
-                shell: cmake -P {0}
-                run: |
-                    set(ENV{CC} ${{ matrix.config.cc }})
-                    set(ENV{CXX} ${{ matrix.config.cxx }})
-                    if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
-                        execute_process(
-                            COMMAND "${{ matrix.config.environment_script }}" && set
-                            OUTPUT_FILE environment_script_output.txt
-                        )
-                        file(STRINGS environment_script_output.txt output_lines)
-                        foreach(line IN LISTS output_lines)
-                            if (line MATCHES "^([a-zA-Z0-9_-]+)=(.*)$")
-                                set(ENV{${CMAKE_MATCH_1}} "${CMAKE_MATCH_2}")
-                            endif()
-                        endforeach()
-                    endif()
-                    set(path_separator ":")
-                    if ("${{ runner.os }}" STREQUAL "Windows")
-                        set(path_separator ";")
-                    endif()
-                    set(ENV{PATH} "$ENV{GITHUB_WORKSPACE}${path_separator}$ENV{PATH}")
-                    execute_process(
-                        COMMAND cmake
-                        -S .
-                        -B build
-                        -D CMAKE_BUILD_TYPE=$ENV{BUILD_TYPE}
-                        -G Ninja
-                        -D CMAKE_MAKE_PROGRAM=ninja
-                        RESULT_VARIABLE result
-                    )
-                    if (NOT result EQUAL 0)
-                        message(FATAL_ERROR "Bad exit status")
-                    endif()
-            -   name: Build
-                shell: cmake -P {0}
-                run: |
-                    set(ENV{NINJA_STATUS} "[%f/%t %o/sec] ")
-                    if ("${{ runner.os }}" STREQUAL "Windows" AND NOT "x${{ matrix.config.environment_script }}" STREQUAL "x")
-                        file(STRINGS environment_script_output.txt output_lines)
-                        foreach(line IN LISTS output_lines)
-                            if (line MATCHES "^([a-zA-Z0-9_-]+)=(.*)$")
-                                set(ENV{${CMAKE_MATCH_1}} "${CMAKE_MATCH_2}")
-                            endif()
-                        endforeach()
-                    endif()
-                    execute_process(
-                        COMMAND cmake --build build
-                        RESULT_VARIABLE result
-                        OUTPUT_VARIABLE output
-                        ERROR_VARIABLE output
-                        ECHO_OUTPUT_VARIABLE ECHO_ERROR_VARIABLE
-                    )
-                    if (NOT result EQUAL 0)
-                        string(REGEX MATCH "FAILED:.*$" error_message "${output}")
-                        string(REPLACE "\n" "%0A" error_message "${error_message}")
-                        message("::error::${error_message}")
-                        message(FATAL_ERROR "Build failed")
-                    endif()
             -   name: Install Strip
                 run: cmake --install build --prefix instdir --strip
+
             -   name: Pack
                 working-directory: instdir
                 run: cmake -E tar cfv ../${{ matrix.config.artifact }} --format=7zip .
+
             -   name: Upload
                 uses: actions/upload-artifact@v2
                 with:
