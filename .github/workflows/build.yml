@@ -48,7 +48,7 @@ jobs:
                     vcpkgGitCommitId: 6ca56aeb457f033d344a7106cb3f9f1abf8f4e98
 
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
-                uses: lukka/run-cmake@latest
+                uses: lukka/run-cmake@v10
                 with:
                     configurePreset: 'ninja-multi-vcpkg'
                     buildPreset: 'ninja-multi-vcpkg'
