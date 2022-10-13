@@ -1,0 +1,7 @@
+{
+    "name": "technical-analysis-matcher",
+    "version-string": "1.0.0",
+    "dependencies": [
+        "dbg-macro"
+    ]
+}
