@@ -1,6 +1,2 @@
 build/
 .idea
-cmake-build-debug/
-cmake-build-debug-event-trace/
-cmake-build-debug-mingw
-cmake-build-debug-mingw-manual
