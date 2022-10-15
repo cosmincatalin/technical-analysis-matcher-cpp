@@ -26,6 +26,7 @@ jobs:
                 uses: lukka/run-vcpkg@v10.5
                 with:
                     vcpkgGitCommitId: 6ca56aeb457f033d344a7106cb3f9f1abf8f4e98
+                    vcpkgDirectory: _vcpkg
 
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
                 uses: lukka/run-cmake@v10.0
@@ -36,7 +37,7 @@ jobs:
             -   name: Install Strip
                 run: |
                     sudo apt install -y tree
-                    tree
+                    tree -I 'vcpkg'
                     cmake --install build --verbose
 
             -   name: Pack
