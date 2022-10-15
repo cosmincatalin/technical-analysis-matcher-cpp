@@ -37,7 +37,7 @@ jobs:
             -   name: Install Strip
                 run: |
                     sudo apt install -y tree
-                    tree -I 'vcpkg'
+                    tree -I '_vcpkg'
                     cmake --install build --verbose
 
             -   name: Pack
