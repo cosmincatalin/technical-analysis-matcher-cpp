@@ -34,7 +34,10 @@ jobs:
                     buildPreset: 'ninja-multi-vcpkg-release'
 
             -   name: Install Strip
-                run: cmake --install build --prefix instdir --strip
+                run: |
+                    cmake --install build --prefix instdir --verbose
+                    sudo apt install -y tree
+                    tree
 
             -   name: Pack
                 working-directory: instdir
