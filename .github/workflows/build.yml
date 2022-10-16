@@ -26,6 +26,7 @@ jobs:
                 uses: lukka/run-vcpkg@v10.5
                 with:
                     vcpkgGitCommitId: ${{ env.VCPKG_VERSION }}
+                    vcpkgDirectory: _vcpkg
 
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
                 uses: lukka/run-cmake@v10.0
@@ -33,8 +34,13 @@ jobs:
                     configurePreset: "ninja-multi-vcpkg"
                     buildPreset: "ninja-multi-vcpkg-release"
 
-            -   name: Install & Strip
-                run: cmake --install build/ninja-multi-vcpkg --strip
+            -   name: Install Strip
+                run: |
+                    sudo apt install -y tree
+                    tree -I _vcpkg
+                    cmake --install build/ninja-multi-vcpkg
+                    tree -I _vcpkg
+                    cmake --install build/ninja-multi-vcpkg
 
             -   name: Pack
                 working-directory: instdir
