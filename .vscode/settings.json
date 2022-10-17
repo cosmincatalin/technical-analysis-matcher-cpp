@@ -14,8 +14,15 @@
     "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
     "C_Cpp.errorSquiggles": "Enabled",
     "cmake.generator": "Ninja",
+    "cmake.useCMakePresets": "auto",
     "cmake.configureSettings": {
         "CMAKE_TOOLCHAIN_FILE": "/usr/local/vcpkg/scripts/buildsystems/vcpkg.cmake"
     },
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cSpell.words": [
+        "buildsystems",
+        "Codespace",
+        "vcpkg",
+        "VCPKG"
+    ]
 }
