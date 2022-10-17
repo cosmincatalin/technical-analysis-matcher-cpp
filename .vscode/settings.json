@@ -17,7 +17,7 @@
     "[cpp]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
     },
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/out/build/devcontainer/compile_commands.json",
     "C_Cpp.errorSquiggles": "Enabled",
     "cmake.generator": "Ninja",
     "cmake.useCMakePresets": "auto",
@@ -29,6 +29,8 @@
         "buildsystems",
         "Codespace",
         "devcontainer",
+        "instdir",
+        "lukka",
         "vcpkg",
         "VCPKG"
     ]

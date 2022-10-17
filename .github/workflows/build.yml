@@ -38,9 +38,9 @@ jobs:
                 run: |
                     sudo apt install -y tree
                     tree -I _vcpkg
-                    cmake --install build/ninja-multi-vcpkg
+                    cmake --install out/build/github-actions-linux
                     tree -I _vcpkg
-                    cmake --install build/ninja-multi-vcpkg
+                    cmake --install out/build/github-actions-linux --prefix instdir --strip
 
             -   name: Pack
                 working-directory: instdir

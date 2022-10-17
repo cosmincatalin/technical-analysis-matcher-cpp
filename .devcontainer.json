@@ -2,10 +2,8 @@
     "name": "Technical Analysis Matcher C++",
     "image": "mcr.microsoft.com/devcontainers/cpp:ubuntu",
     "extensions": [
-        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
         "ms-vscode.makefile-tools",
-        "ms-vscode.cmake-tools",
-        "ms-vscode.cpptools-themes",
         "editorconfig.editorconfig",
         "streetsidesoftware.code-spell-checker",
         "sonarsource.sonarlint-vscode",
