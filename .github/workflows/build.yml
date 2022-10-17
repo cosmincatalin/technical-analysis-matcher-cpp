@@ -31,8 +31,8 @@ jobs:
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
                 uses: lukka/run-cmake@v10.0
                 with:
-                    configurePreset: "ninja-multi-vcpkg"
-                    buildPreset: "ninja-multi-vcpkg-release"
+                    configurePreset: "github-actions-linux"
+                    buildPreset: "github-actions-linux"
 
             -   name: Install Strip
                 run: |

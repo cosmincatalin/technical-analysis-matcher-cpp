@@ -2,45 +2,64 @@
     "version": 3,
     "configurePresets": [
         {
-            "name": "ninja-multi-vcpkg",
-            "displayName": "Ninja Multi-Config",
-            "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
-            "binaryDir": "${sourceDir}/build/${presetName}",
-            "generator": "Ninja Multi-Config",
+            "name": "base",
+            "hidden": true,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/build/${presetName}",
             "cacheVariables": {
+                "CMAKE_INSTALL_PREFIX": {
+                    "type": "FILEPATH",
+                    "value": "${sourceDir}/out/install/${presetName}"
+                },
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
                     "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+                },
+                "CMAKE_EXPORT_COMPILE_COMMANDS": {
+                    "type": "BOOL",
+                    "value": true
+                }
+            }
+        },
+        {
+            "name": "devcontainer",
+            "displayName": "VS Code Dev Container",
+            "description": "Host OS independent preset for running in VS Code Dev Container",
+            "inherits": ["base"],
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_CXX_COMPILER": {
+                    "type": "FILEPATH",
+                    "value": "/usr/bin/g++"
+                },
+                "CMAKE_BUILD_TYPE":{
+                    "type": "STRING",
+                    "value": "Debug"
+                }
+            }
+        },
+        {
+            "name": "github-actions-linux",
+            "description": "Preset for running GitHUB Actions",
+            "inherits": ["base"],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE":{
+                    "type": "STRING",
+                    "value": "Release"
                 }
             }
         }
     ],
     "buildPresets": [
         {
-            "name": "ninja-multi-vcpkg-debug",
-            "configurePreset": "ninja-multi-vcpkg",
-            "displayName": "Build ninja-multi-vcpkg-debug",
-            "description": "Build ninja-multi-vcpkg Debug configuration",
-            "configuration": "Debug"
-        },
-        {
-            "name": "ninja-multi-vcpkg-release",
-            "configurePreset": "ninja-multi-vcpkg",
-            "displayName": "Build ninja-multi-vcpkg-release",
-            "description": "Build ninja-multi-vcpkg Release configuration",
-            "configuration": "RelWithDebInfo"
+            "name": "github-actions-linux",
+            "configurePreset": "github-actions-linux"
         }
     ],
     "testPresets": [
         {
-            "name": "ninja-multi-vcpkg-debug",
-            "configurePreset": "ninja-multi-vcpkg",
-            "configuration": "Debug"
-        },
-        {
-            "name": "ninja-multi-vcpkg-release",
-            "configurePreset": "ninja-multi-vcpkg",
-            "configuration": "RelWithDebInfo"
+            "name": "github-actions-linux",
+            "configurePreset": "github-actions-linux"
         }
     ]
 }
