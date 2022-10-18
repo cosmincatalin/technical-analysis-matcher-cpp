@@ -13,13 +13,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 include_directories(src)
 
-add_library(TechnicalAnalysisMatcher SHARED src/TechnicalAnalysisMatcher.cpp)
-
-add_executable(Detect runners/Detect.cpp)
-
-find_path(DBG_MACRO_INCLUDE_DIRS "dbg.h")
-target_include_directories(Detect PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
-
+add_library(TechnicalAnalysisMatcher SHARED src/TechnicalAnalysisMatcher.cpp src/Candle.hpp src/Candle.cpp)
 install(TARGETS TechnicalAnalysisMatcher)
 
+add_executable(Detect runners/Detect.cpp)
+find_path(DBG_MACRO_INCLUDE_DIRS "dbg.h")
+target_include_directories(Detect PRIVATE ${DBG_MACRO_INCLUDE_DIRS})
 target_link_libraries(Detect TechnicalAnalysisMatcher)
