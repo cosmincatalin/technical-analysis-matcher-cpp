@@ -102,7 +102,7 @@
         },
         {
             "name": "github-actions-windows-msvc",
-            "configurePreset": "github-actions-windows-mingw"
+            "configurePreset": "github-actions-windows-msvc"
         }
     ],
     "testPresets": [
@@ -112,7 +112,7 @@
         },
         {
             "name": "github-actions-windows-msvc",
-            "configurePreset": "github-actions-windows-mingw"
+            "configurePreset": "github-actions-windows-msvc"
         }
     ]
 }
