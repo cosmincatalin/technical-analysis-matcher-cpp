@@ -40,7 +40,29 @@
         },
         {
             "name": "github-actions-linux",
-            "description": "Preset for running GitHUB Actions",
+            "description": "Preset for running GitHub Actions on Linux",
+            "inherits": ["base"],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE":{
+                    "type": "STRING",
+                    "value": "Release"
+                }
+            }
+        },
+        {
+            "name": "github-actions-windows-mingw",
+            "description": "Preset for running GitHub Actions on Windows with MinGW",
+            "inherits": ["base"],
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE":{
+                    "type": "STRING",
+                    "value": "Release"
+                }
+            }
+        },
+        {
+            "name": "github-actions-windows-msvc",
+            "description": "Preset for running GitHub Actions on Windows with MSVC",
             "inherits": ["base"],
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE":{
@@ -51,7 +73,7 @@
         },
         {
             "name": "github-actions-macos",
-            "description": "Preset for running GitHUB Actions",
+            "description": "Preset for running GitHub Actions on macOS",
             "inherits": ["base"],
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": {
@@ -69,12 +91,20 @@
         {
             "name": "github-actions-linux",
             "configurePreset": "github-actions-linux"
+        },
+        {
+            "name": "github-actions-windows-mingw",
+            "configurePreset": "github-actions-windows-mingw"
         }
     ],
     "testPresets": [
         {
             "name": "github-actions-linux",
             "configurePreset": "github-actions-linux"
+        },
+        {
+            "name": "github-actions-windows-mingw",
+            "configurePreset": "github-actions-windows-mingw"
         }
     ]
 }
