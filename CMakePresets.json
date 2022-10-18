@@ -60,7 +60,7 @@
                 },
                 "CMAKE_CXX_COMPILER": {
                     "type": "FILEPATH",
-                    "value": "/usr/bin/clang"
+                    "value": "g++"
                 }
             }
         },
@@ -103,6 +103,10 @@
         {
             "name": "github-actions-windows-msvc",
             "configurePreset": "github-actions-windows-msvc"
+        },
+        {
+            "name": "github-actions-windows-mingw",
+            "configurePreset": "github-actions-windows-mingw"
         }
     ],
     "testPresets": [
@@ -113,6 +117,10 @@
         {
             "name": "github-actions-windows-msvc",
             "configurePreset": "github-actions-windows-msvc"
+        },
+        {
+            "name": "github-actions-windows-mingw",
+            "configurePreset": "github-actions-windows-mingw"
         }
     ]
 }
