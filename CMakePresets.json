@@ -57,6 +57,10 @@
                 "CMAKE_BUILD_TYPE":{
                     "type": "STRING",
                     "value": "Release"
+                },
+                "CMAKE_CXX_COMPILER": {
+                    "type": "FILEPATH",
+                    "value": "/usr/bin/clang"
                 }
             }
         },
@@ -68,6 +72,10 @@
                 "CMAKE_BUILD_TYPE":{
                     "type": "STRING",
                     "value": "Release"
+                },
+                "CMAKE_CXX_COMPILER": {
+                    "type": "FILEPATH",
+                    "value": "cl.exe"
                 }
             }
         },
@@ -93,7 +101,7 @@
             "configurePreset": "github-actions-linux"
         },
         {
-            "name": "github-actions-windows-mingw",
+            "name": "github-actions-windows-msvc",
             "configurePreset": "github-actions-windows-mingw"
         }
     ],
@@ -103,7 +111,7 @@
             "configurePreset": "github-actions-linux"
         },
         {
-            "name": "github-actions-windows-mingw",
+            "name": "github-actions-windows-msvc",
             "configurePreset": "github-actions-windows-mingw"
         }
     ]
