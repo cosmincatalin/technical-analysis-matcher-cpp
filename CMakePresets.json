@@ -86,7 +86,7 @@
             "cacheVariables": {
                 "CMAKE_CXX_COMPILER": {
                     "type": "FILEPATH",
-                    "value": "/usr/bin/clang"
+                    "value": "g++"
                 },
                 "CMAKE_BUILD_TYPE":{
                     "type": "STRING",
