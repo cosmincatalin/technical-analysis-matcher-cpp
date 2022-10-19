@@ -22,16 +22,16 @@ jobs:
         steps:
             -   uses: actions/checkout@v3
 
-            -   uses: lukka/get-cmake@v.3.23.2
+            -   uses: lukka/get-cmake@latest
                 name: Install CMake and Ninja
 
             -   name: Restore artifacts, or setup vcpkg (do not install any package)
-                uses: lukka/run-vcpkg@v10.5
+                uses: lukka/run-vcpkg@latest
                 with:
                     vcpkgGitCommitId: ${{ env.VCPKG_VERSION }}
 
             -   name: Run CMake consuming CMakePreset.json and vcpkg.json by mean of vcpkg.
-                uses: lukka/run-cmake@v10.0
+                uses: lukka/run-cmake@latest
                 with:
                     configurePreset: "${{ matrix.config.preset }}"
                     buildPreset: "${{ matrix.config.preset }}"
