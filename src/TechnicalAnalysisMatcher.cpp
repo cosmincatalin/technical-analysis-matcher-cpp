@@ -1,6 +1,8 @@
 #include "TechnicalAnalysisMatcher.hpp"
 
-bool TAMatcher::match()
-{
-    return false;
+namespace TAMatcher{
+    bool match()
+    {
+        return false;
+    }
 }
