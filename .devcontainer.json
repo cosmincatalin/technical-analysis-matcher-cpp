@@ -13,7 +13,7 @@
     "containerEnv": {
         "VCPKG_ROOT": "${containerEnv:HOME}/vcpkg"
     },
-    "postCreateCommand": "sudo apt remove -y cmake && sudo apt install -y python3-pip && pip install cmake && git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg && ~/vcpkg/bootstrap-vcpkg.sh",
+    "postCreateCommand": "sudo apt update && sudo apt remove -y cmake && sudo apt install -y python3-pip && pip install cmake && git clone https://github.com/Microsoft/vcpkg.git ~/vcpkg && ~/vcpkg/bootstrap-vcpkg.sh",
     "settings": {
         "files.exclude": {
             "**/.git": true,
