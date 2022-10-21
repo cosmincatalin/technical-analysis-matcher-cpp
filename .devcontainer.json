@@ -8,7 +8,8 @@
         "streetsidesoftware.code-spell-checker",
         "sonarsource.sonarlint-vscode",
         "jeff-hykin.better-cpp-syntax",
-        "surajbarkale.ninja"
+        "surajbarkale.ninja",
+        "cschleiden.vscode-github-actions"
     ],
     "containerEnv": {
         "VCPKG_ROOT": "${containerEnv:HOME}/vcpkg"
