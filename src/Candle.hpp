@@ -4,12 +4,14 @@ namespace TAMatcher
 {
     class Candle
     {
-    public:
-        Candle(double open, double close, double high, double low);
+    private:
         double open;
         double high;
         double low;
         double close;
+    public:
+        Candle(double open, double close, double high, double low);
+        double getOpen() const { return open; };
     };
 }
 #endif //TECHNICALANALYSISMATCHER_CANDLE_HPP
