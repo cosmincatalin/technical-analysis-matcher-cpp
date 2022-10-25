@@ -26,7 +26,7 @@ jobs:
                 name: Install CMake and Ninja
 
             -   name: Restore artifacts, or setup vcpkg (do not install any package)
-                uses: lukka/run-vcpkg@v10.5
+                uses: lukka/run-vcpkg@v10.6
                 with:
                     vcpkgGitCommitId: ${{ env.VCPKG_VERSION }}
 
