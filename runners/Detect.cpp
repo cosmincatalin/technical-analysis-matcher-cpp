@@ -15,6 +15,7 @@ int main()
     {
         dbg(candle.getOpen());
     }
+
     dbg(TAMatcher::match());
     return 0;
 }
