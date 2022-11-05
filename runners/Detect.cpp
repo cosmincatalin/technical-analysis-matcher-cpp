@@ -17,6 +17,6 @@ int main()
         dbg(candle.getOpen());
     }
 
-    dbg(TAMatcher::isHammer(candles));
+    dbg(TAMatcher::fallingThree(candles));
     return 0;
 }

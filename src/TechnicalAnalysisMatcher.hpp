@@ -7,7 +7,7 @@
 
 namespace TAMatcher
 {
-    bool isHammer(const std::vector<Candle>& candles);
+    bool fallingThree(const std::vector<Candle>& candles);
 }
 
 #endif
