@@ -10,8 +10,11 @@ namespace TAMatcher
         double low;
         double close;
     public:
-        Candle(double open, double close, double high, double low);
-        double getOpen() const { return open; };
+        Candle(double open, double high, double low, double close);
+        [[nodiscard]] auto getOpen() const { return open; };
+        [[nodiscard]] auto getHigh() const { return high; };
+        [[nodiscard]] auto getLow() const { return low; };
+        [[nodiscard]] auto getClose() const { return close; };
     };
 }
 #endif //TECHNICALANALYSISMATCHER_CANDLE_HPP
